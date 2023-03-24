@@ -27,7 +27,36 @@ export class ProductsComponent implements OnInit {
         'price': 59990
     }
   ];
-  constructor() { }
+
+  name = "Angular";
+  //allowNewProduct = false;
+  private _allowNewProduct = false;
+  get allowNewProduct(){
+    return this._allowNewProduct;
+  }
+  set allowNewProduct(value){
+    this._allowNewProduct = value;
+  }
+  //New Product Item
+  newProduct = { title: "", productType: "", price: 0 };
+  product: Product[];
+
+  constructor() { 
+
+    setTimeout(()=>{
+      this.allowNewProduct = true;
+    }, 2000)
+  }
+
+  onNewProductClick(){
+    //alert("new botton click!!");
+    this.showNewProductPanel = !this.showNewProductPanel;
+  }
+
+  getColor(product) {
+    console.log(product);
+    return product.productType === 'Mobile' ? 'red' : 'black'
+  }
 
   ngOnInit() {
   }
