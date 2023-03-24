@@ -6,6 +6,66 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <app-products>Loading</app-products>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Products</h4>
+    <button class="btn btn-primary" 
+            [disabled]="!allowNewProduct"
+            (click)="onNewProductClick()">
+      Add New Product
+    </button>
+    <div class="row" style="font-weight:bolder; border-bottom:1px solid lightgray">
+      <div class="col-5">Title</div>
+      <div class="col">Product Type</div>
+      <div class="col">Price</div>
+    </div>
+
+    <!--  Two-Way Binding  -->
+    <div class="row" style="border-bottom:1px solid lightgray" 
+         *ngIf="showNewProductPanel">
+      <div class="col-5">
+        <input type="text" [(ngModel)]="newProduct.title" />
+      </div>
+      <div class="col">
+        <select [(ngModel)]="newProduct.productType">
+          <option value="Mobile">Mobile</option>
+          <option value="Laptop">Laptop</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="newProduct.price"/>
+      </div>
+    </div>  
+    <!-- print out newProduct object -->
+    {{ newProduct | json }}
+    <app-products [productData]="products"
+                  (deletedItem)="onDelete($event)">
+    </app-products>
+    <!--
+    <div class="row" style="border-bottom:1px solid lightgray" 
+         *ngFor="let product of Products"
+         [ngStyle]="{color:getColor(product)}">
+      <div class="col-5">{{ product.title }}</div>
+      <div class="col">{{product.productType}}</div>
+      <div class="col">{{product.price | currency : 'INR'}}</div>
+    </div>
+    --> 
+
+  </div>
+  <!--<table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Product Type</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Products">
+        <td scope="row">{{product.title}}</td>
+        <td>{{product.productType}}</td>
+        <td>{{product.price | currency : 'INR'}}</td>
+      </tr>
+    </tbody>
+  </table>-->
 </div>
