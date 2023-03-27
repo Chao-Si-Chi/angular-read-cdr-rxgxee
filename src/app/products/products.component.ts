@@ -15,9 +15,14 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDelete(product) {
+  /*onDelete(product) {
     console.log(product);
     this.deletedItem.emit(product.id);
+  }*/
+
+  deleteItem(id) {
+    console.log('products component delete: ', id);
+    this.deletedItem.emit(id);
   }
 
 }
