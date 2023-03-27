@@ -14,27 +14,6 @@ import { Service } from './service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  /*Products: Product[] = [
-    {
-        'id': 11,
-        'title': 'OPPO F5 Youth (Gold, 32 GB)',
-        'modelName': 'F5 Youth',
-        'color': 'Gold',
-        'productType': 'Mobile',
-        'brand': 'OPPO',
-        'price': 16990
-    },
-    {
-        'id': 12,
-        'title': 'Dell Inspiron 7000',
-        'modelName': 'Inspiron',
-        'color': 'Gray',
-        'productType': 'Laptop',
-        'brand': 'DELL',
-        'price': 59990
-    }
-  ];*/
-
   name = "Angular";
   //allowNewProduct = false;
   private _allowNewProduct = false;
@@ -44,8 +23,7 @@ export class AppComponent {
   set allowNewProduct(value){
     this._allowNewProduct = value;
   }
-  //New Product Item
-  newProduct = { title: "", productType: "", price: 0 };
+  
   products: Product[];
 
   constructor() { 

@@ -20,24 +20,9 @@
       <div class="col">Price</div>
     </div>
 
-    <!--  Two-Way Binding  -->
-    <div class="row" style="border-bottom:1px solid lightgray" 
-         *ngIf="showNewProductPanel">
-      <div class="col-5">
-        <input type="text" [(ngModel)]="newProduct.title" />
-      </div>
-      <div class="col">
-        <select [(ngModel)]="newProduct.productType">
-          <option value="Mobile">Mobile</option>
-          <option value="Laptop">Laptop</option>
-        </select>
-      </div>
-      <div class="col">
-        <input type="number" [(ngModel)]="newProduct.price"/>
-      </div>
-    </div>  
     <!-- print out newProduct object -->
     <!--{{ newProduct | json }}-->
+    <app-new-product></app-new-product>
     <app-products [productData]="products"
                   (deletedItem)="onDelete($event)">
     </app-products>
