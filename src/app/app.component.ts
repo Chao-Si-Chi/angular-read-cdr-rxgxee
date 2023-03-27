@@ -69,7 +69,7 @@ export class AppComponent {
   }
 
   onAdd($event){
-    console.log('in app component new product: ', $event);
+    //console.log('in app component new product: ', $event);
     this.products.push($event);
   }
 }
