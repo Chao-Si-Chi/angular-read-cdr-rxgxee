@@ -7,10 +7,11 @@ import { HelloComponent } from './hello.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { PaddingZeroPipe } from './padding-zero.pipe';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, PaddingZeroPipe ],
+  declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, NewProductComponent, PaddingZeroPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
