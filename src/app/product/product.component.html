@@ -1,36 +1,37 @@
 <div class="card bg-secondary text-white">
-  <div class="card-body">
-      <h4 class="card-title">{{productData.title}}</h4>
-      <h5 class="card-text">{{productData.price|currency:'INR'|paddingZero:20}}</h5>
-      <hr>
-      <div class="row">
-          <div class="col">
-              <b>Product Type</b>
-          </div>
-          <!-- show different icon by productType use ngIf-->
-    <div class="col">
-      <i class="fa fa-laptop fa-2x" aria-hidden="true"
-        *ngIf="productData.productType=='Laptop'"></i>
-      <i class="fa fa-mobile fa-2x"
-        *ngIf="productData.productType=='Mobile'" aria-hidden="true"></i>
+    <div class="card-body">
+        <h4 class="card-title">{{productData.title}}</h4>
+        <!--<h5 class="card-text">{{productData.price|currency:'INR'|paddingZero:20}}</h5>-->
+        <h5 class="card-text">{{productData.price|currency:'INR'}}</h5>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <b>Product Type</b>
+            </div>
+            <!-- show different icon by productType use ngIf-->
+      <div class="col">
+        <i class="fa fa-laptop fa-2x" aria-hidden="true"
+          *ngIf="productData.productType=='Laptop'"></i>
+        <i class="fa fa-mobile fa-2x"
+          *ngIf="productData.productType=='Mobile'" aria-hidden="true"></i>
+      </div>
+            <!-- show different icon by productType use ngClass
+            <div class="col">
+                <i [ngClass]="{'Laptop':'fa fa-laptop fa-2x', 
+                          'Mobile':'fa fa-mobile fa-2x'}[productData.productType]" aria-hidden="true"></i>
+            </div>-->
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <b>Brand</b>
+            </div>
+            <div class="col">
+                {{productData.brand}}
+            </div>
+        </div>
     </div>
-          <!-- show different icon by productType use ngClass
-          <div class="col">
-              <i [ngClass]="{'Laptop':'fa fa-laptop fa-2x', 
-                        'Mobile':'fa fa-mobile fa-2x'}[productData.productType]" aria-hidden="true"></i>
-          </div>-->
-      </div>
-      <hr>
-      <div class="row">
-          <div class="col">
-              <b>Brand</b>
-          </div>
-          <div class="col">
-              {{productData.brand}}
-          </div>
-      </div>
+    <div class="card-footer text-muted">
+        <button type="button" class="btn btn-danger" (click)="delete()" >Remove</button>
+    </div>
   </div>
-  <div class="card-footer text-muted">
-      <button type="button" class="btn btn-danger" (click)="delete()" >Remove</button>
-  </div>
-</div>

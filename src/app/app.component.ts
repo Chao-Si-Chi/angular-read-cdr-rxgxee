@@ -67,4 +67,9 @@ export class AppComponent {
     console.log('in app component: ',id);
     this.products.splice(this.products.findIndex(x=>x.id === id), 1);
   }
+
+  onAdd($event){
+    console.log('in app component new product: ', $event);
+    this.products.push($event);
+  }
 }

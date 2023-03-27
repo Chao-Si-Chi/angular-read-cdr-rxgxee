@@ -1,3 +1,9 @@
+<div class="row" style="font-weight:bolder; border-bottom:1px solid lightgray">
+  <div class="col-5">Title</div>
+  <div class="col">Product Type</div>
+  <div class="col">Price</div>
+  <div class="col"></div>
+</div>
 <!--  Two-Way Binding  -->
 <div
   class="row"
@@ -15,5 +21,8 @@
   </div>
   <div class="col">
     <input type="number" [(ngModel)]="newProduct.price" />
+  </div>
+  <div class="col">
+    <button class="btn btn-primary" (click)="onNewProductClick()">Add</button>
   </div>
 </div>
