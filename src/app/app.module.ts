@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
+import { PaddingZeroPipe } from './padding-zero.pipe';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent ],
+  declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, PaddingZeroPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
