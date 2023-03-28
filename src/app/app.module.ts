@@ -17,22 +17,24 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
+/*const appRoutes: Routes = [
   //載入頁面有順序姓
   { path:'', component: HomeComponent }, // [url]/home
   { path:'home', component: HomeComponent }, // [url]/home
   { path:'products', component: ProductsComponent }, // [url]/products
   { path:'products/:id', component: ProductDetailComponent },  // [url]/products/1
   //{ path:'', redirectTo: '/home', pathMatch: 'full' }, // [url]/home
-  { path: '**', component: PageNotFoundComponent, pathMatch: 'full' } // no any route matched 
-]; 
+  { path:'page-not-found', component: PageNotFoundComponent }, 
+  { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' } // no any route matched 
+]; */
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
     FormsModule,
-    RouterModule.forRoot(appRoutes) 
+    AppRoutingModule
   ],
   declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, NewProductComponent, PaddingZeroPipe, HomeComponent, HeaderComponent, PageNotFoundComponent, ProductDetailComponent ],
   bootstrap:    [ AppComponent ], 

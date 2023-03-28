@@ -40,13 +40,12 @@
   <div class="card-footer text-muted">
     <div class="row">
       <div class="col-8">
-        <button type="button" class="btn btn-primary" (click)="showDetail()">
-            Detail
-          </button>
+        <button type="button" class="btn btn-primary" (click)="showDetail()">Detail</button>
+        <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
       </div>
-      <button type="button" class="btn btn-danger" (click)="delete()">
-        Remove
-      </button>
+      <div class="col">
+        <button type="button" class="btn btn-danger" (click)="delete()">Remove</button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras, } from '@angular/router';
 //import { LoggingService } from '../logging.service';
 import { ProductService } from '../product.service';
 
@@ -29,7 +29,15 @@ export class ProductComponent implements OnInit {
   }
 
   showDetail(){
-    this.router.navigate(['/products', this.productData.id]);
+    let navigationExtra: NavigationExtras = {
+      queryParamsHandling: 'merge', 
+      queryParams: {secondId: 200}
+    }
+    this.router.navigate(['/products', this.productData.id], navigationExtra);
+  }
+
+  onEdit(){
+    this.router.navigate(['products', 'new', 'edit']);
   }
 
 }

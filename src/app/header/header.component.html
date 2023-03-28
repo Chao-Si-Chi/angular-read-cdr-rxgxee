@@ -13,7 +13,10 @@
               <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['products']">Products</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['pathNotFound']">[Route not matched]</a>
+              <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" 
+                [routerLink]="['pathNotFound']" 
+                [queryParams]="{id:10, title:'Hello'}"
+                fragment="VGHTC">[Route not matched]</a>
           </li>
       </ul>
   </div>

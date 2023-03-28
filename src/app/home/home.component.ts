@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +14,13 @@ export class HomeComponent implements OnInit {
   }
 
   onLoadProducts(){
+    let navigationExtras: NavigationExtras = {
+      queryParams: { firstId: 10 }, 
+      fragment: 'Hello'
+    }
+    this.router.navigate(['/products'], navigationExtras);
     //參數為ARRAY
-    this.router.navigate(['/products']);
+    //this.router.navigate(['/products']);
     //參數為STRING
     //this.router.navigateByUrl('/products');
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 //import { Product } from '../models/product.ts';
 @Component({
@@ -32,6 +32,11 @@ export class ProductsComponent implements OnInit {
   }
 
   onReload(){
-    this.router.navigate(['/products'], { relativeTo: this.route });
+    
+    this.router.navigate(['products'], { relativeTo: this.route });
+  }
+
+  onNewProduct(){
+    this.router.navigate(['products', 'new', 'edit']);
   }
 }
