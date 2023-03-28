@@ -13,7 +13,7 @@ import { Service } from './service';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'], 
-  providers: [ProductService]
+  //providers: [ProductService]
 })
 export class AppComponent {
   name = "Angular";
@@ -36,17 +36,17 @@ export class AppComponent {
     }, 2000)
   }
 
-  onNewProductClick(){
+  /*onNewProductClick(){
     //alert("new botton click!!");
     this.showNewProductPanel = !this.showNewProductPanel;
-  }
+  }*/
 
   getColor(product) {
     console.log(product);
     return product.productType === 'Mobile' ? 'red' : 'black'
   }
 
-  onDelete(id){
+  /*onDelete(id){
     console.log('in app component: ',id);
     this.products.splice(this.products.findIndex(x=>x.id === id), 1);
   }
@@ -55,5 +55,5 @@ export class AppComponent {
     //console.log('in app component new product: ', $event);
     //this.products.push($event);
     this.productService.addProduct($event);
-  }
+  }*/
 }

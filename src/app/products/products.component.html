@@ -18,8 +18,7 @@
     <h4 class="card-title">Products</h4>
     <div class="row">
       <app-product style="margin-bottom: 10px" class="col-md-4" *ngFor="let data of products"
-      [product]="data"
-      (removed)="deleteItem($event)"></app-product>
+      [product]="data"></app-product>
     </div>  
   </div>
 </div>

@@ -8,10 +8,13 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { PaddingZeroPipe } from './padding-zero.pipe';
 import { NewProductComponent } from './new-product/new-product.component';
+//import { LoggingService } from './logging.service';
+//import { ProductService } from './product.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, NewProductComponent, PaddingZeroPipe ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ], 
+  //providers: [LoggingService, ProductService]
 })
 export class AppModule { }

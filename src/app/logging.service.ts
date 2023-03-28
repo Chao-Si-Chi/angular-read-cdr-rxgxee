@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({providedIn: 'root'})
 export class LoggingService {
   logNewProduct(title:string, productType:string, price:number) {
     console.log(`new product added: title: ${title}, product type: ${productType}, price: ${price}`);

@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   @Input('productData') products: any;
-  @Output() deletedItem: EventEmitter<any> = new EventEmitter();
+  //@Output() deletedItem: EventEmitter<any> = new EventEmitter();
   constructor(){
 
   }
@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
 
   deleteItem(id) {
     console.log('products component delete: ', id);
-    this.deletedItem.emit(id);
+    //this.deletedItem.emit(id);
   }
 
 }

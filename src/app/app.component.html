@@ -13,9 +13,8 @@
     <!-- print out newProduct object -->
     <!--{{ newProduct | json }}-->
     <!--<app-new-product (addProduct)="onAdd($event)"></app-new-product>-->
-    <app-new-product (addProduct)="onAdd($event)"></app-new-product>
-    <app-products [productData]="products"
-                  (deletedItem)="onDelete($event)">
+    <app-new-product></app-new-product>
+    <app-products [productData]="products">
     </app-products>
     <!--
     <div class="row" style="border-bottom:1px solid lightgray" 
