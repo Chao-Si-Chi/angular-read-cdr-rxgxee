@@ -26,8 +26,8 @@ export class NewProductComponent implements OnInit {
     //loggingService.logNewProduct(this.newProduct.title, this.newProduct.productType, this.newProduct.price);
     this.loggingService.logNewProduct(this.newProduct.title, this.newProduct.productType, this.newProduct.price);
 
-    this.addProduct.emit(this.newProduct);
-    //this.productService.addProduct(this.newProduct);
+    //this.addProduct.emit(this.newProduct);
+    this.productService.addProduct(this.newProduct);
     this.newProduct = { title: "", productType: "", price: 0 };
     
   }
