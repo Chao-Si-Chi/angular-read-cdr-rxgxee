@@ -27,7 +27,7 @@ export class ProductService {
   
   constructor(private loggingService: LoggingService) { } // inject service
   addProduct(newProduct){
-    this.loggingService.logNewProduct(newProduct.title, newProduct.productType, newProduct.price);
+    this.loggingService.logNewProduct(newProduct);
     
     let idArray = this.products.map(x=>x.id);
     //...為解構語法，如陣列用此語法會逐一拿出

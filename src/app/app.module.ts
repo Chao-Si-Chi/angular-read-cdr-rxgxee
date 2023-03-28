@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { PaddingZeroPipe } from './padding-zero.pipe';
 import { NewProductComponent } from './new-product/new-product.component';
+import { UserService } from './user.service';
 //import { LoggingService } from './logging.service';
 //import { ProductService } from './product.service';
 
@@ -15,6 +16,6 @@ import { NewProductComponent } from './new-product/new-product.component';
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, NewProductComponent, PaddingZeroPipe ],
   bootstrap:    [ AppComponent ], 
-  //providers: [LoggingService, ProductService]
+  providers: [UserService]
 })
 export class AppModule { }
