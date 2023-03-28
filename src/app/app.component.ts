@@ -26,14 +26,10 @@ export class AppComponent {
     this._allowNewProduct = value;
   }
   
-  products: Product[];
+  //products: Product[];
 
-  constructor(private productService:ProductService) { 
-    this.products = this.productService.products;
-
-    setTimeout(()=>{
-      this.allowNewProduct = true;
-    }, 2000)
+  constructor() { 
+    
   }
 
   /*onNewProductClick(){

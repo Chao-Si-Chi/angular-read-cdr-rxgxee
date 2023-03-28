@@ -40,4 +40,9 @@ export class ProductService {
     //console.log(`in service remove product: ${id}`)
     this.products.splice(this.products.findIndex(x => x.id === id), 1);
   }
+
+  getProduct(id){
+    const filterProducts = this.products.filter(x=>x.id === parseInt(id));
+    return filterProducts.length === 0 ? undefined : filterProducts[0]
+  }
 }

@@ -2,3 +2,10 @@ p {
   font-family: Lato;
 }
 
+.MobileStyle{
+  color: red;
+}
+
+.LaptopStyle{
+  color: green;
+}

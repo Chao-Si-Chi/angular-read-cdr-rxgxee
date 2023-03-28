@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 //import { LoggingService } from '../logging.service';
 import { ProductService } from '../product.service';
 
@@ -12,7 +13,8 @@ export class ProductComponent implements OnInit {
 
   @Input('product') productData: Product;
   //@Output() removed: EventEmitter<number> = new EventEmitter<number>();
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, 
+              private router: Router) { }
 
   ngOnInit() {
     console.log(this.productData);
@@ -24,6 +26,10 @@ export class ProductComponent implements OnInit {
     //this.loggingService.logDeleteProduct(this.productData.id, this.productData.title);
     // Use service
     this.productService.removeProduct(this.productData.id);
+  }
+
+  showDetail(){
+    this.router.navigate(['/products', this.productData.id]);
   }
 
 }

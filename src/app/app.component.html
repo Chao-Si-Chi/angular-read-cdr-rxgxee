@@ -1,22 +1,30 @@
-<div class = "jumbotron jumbotron-fluid">
-  <div class = "container">
-    <h1 class = "display-3">Welcome to Electronic-Shop</h1>
-    <p class = "lead">THE ONLINE MEGASTORE</p>
-    <hr class = "my-2">
+<app-header></app-header>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Welcome to Electronic-Shop</h1>
+    <p class="lead">THE ONLINE MEGASTORE</p>
+    <hr class="my-2" />
   </div>
 </div>
 
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Products</h4>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <!--<h4 class="card-title">Products</h4>-->
 
-    <!-- print out newProduct object -->
-    <!--{{ newProduct | json }}-->
-    <!--<app-new-product (addProduct)="onAdd($event)"></app-new-product>-->
-    <app-new-product></app-new-product>
-    <app-products [productData]="products">
-    </app-products>
-    <!--
+      <!-- print out newProduct object -->
+      <!--{{ newProduct | json }}-->
+      <!--<app-new-product (addProduct)="onAdd($event)"></app-new-product>-->
+      <!--<app-new-product></app-new-product>-->
+      <!--<app-products> </app-products>-->
+
+      <!-- 原來直接插入 Component 方式改為使用 router-outlet 路由插座  -->
+      <!-- <app-new-product></app-new-product>
+      <app-products></app-products> --> 
+      <router-outlet></router-outlet>
+
+      <!--
     <div class="row" style="border-bottom:1px solid lightgray" 
          *ngFor="let product of Products"
          [ngStyle]="{color:getColor(product)}">
@@ -24,10 +32,9 @@
       <div class="col">{{product.productType}}</div>
       <div class="col">{{product.price | currency : 'INR'}}</div>
     </div>
-    --> 
-
-  </div>
-  <!--<table class="table">
+    -->
+    </div>
+    <!--<table class="table">
     <thead>
       <tr>
         <th>Title</th>
@@ -43,4 +50,5 @@
       </tr>
     </tbody>
   </table>-->
+  </div>
 </div>
