@@ -6,12 +6,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { HelloComponent } from './hello.component';
+import { ProductService } from './product.service';
 import { Service } from './service';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css'], 
+  providers: [ProductService]
 })
 export class AppComponent {
   name = "Angular";
@@ -26,27 +28,8 @@ export class AppComponent {
   
   products: Product[];
 
-  constructor() { 
-    this.products = [
-      {
-        id: 11,
-        title: "OPPO F5 Youth (Gold, 32 GB)",
-        modelName: "F5 Youth",
-        color: "Gold",
-        productType: "Mobile",
-        brand: "OPPO",
-        price: 16990
-      },
-      {
-        id: 12,
-        title: "Dell Inspiron 7000",
-        modelName: "Inspiron",
-        color: "Gray",
-        productType: "Laptop",
-        brand: "DELL",
-        price: 59990
-      }
-    ];
+  constructor(private productService:ProductService) { 
+    this.products = this.productService.products;
 
     setTimeout(()=>{
       this.allowNewProduct = true;
@@ -70,6 +53,7 @@ export class AppComponent {
 
   onAdd($event){
     //console.log('in app component new product: ', $event);
-    this.products.push($event);
+    //this.products.push($event);
+    this.productService.addProduct($event);
   }
 }

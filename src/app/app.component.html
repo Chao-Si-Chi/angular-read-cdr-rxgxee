@@ -12,6 +12,7 @@
 
     <!-- print out newProduct object -->
     <!--{{ newProduct | json }}-->
+    <!--<app-new-product (addProduct)="onAdd($event)"></app-new-product>-->
     <app-new-product (addProduct)="onAdd($event)"></app-new-product>
     <app-products [productData]="products"
                   (deletedItem)="onDelete($event)">

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { LoggingService } from '../logging.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-new-product',
@@ -13,7 +14,8 @@ export class NewProductComponent implements OnInit {
   //New Product Item
   newProduct = { title: "", productType: "", price: 0 };
   @Output() addProduct:EventEmitter<any> = new EventEmitter<any>();
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService, 
+              private productService: ProductService) { }
 
   ngOnInit() {
   }
@@ -23,9 +25,11 @@ export class NewProductComponent implements OnInit {
     //const loggingService = new LoggingService();
     //loggingService.logNewProduct(this.newProduct.title, this.newProduct.productType, this.newProduct.price);
     this.loggingService.logNewProduct(this.newProduct.title, this.newProduct.productType, this.newProduct.price);
-    
+
     this.addProduct.emit(this.newProduct);
+    //this.productService.addProduct(this.newProduct);
     this.newProduct = { title: "", productType: "", price: 0 };
+    
   }
 
 }
