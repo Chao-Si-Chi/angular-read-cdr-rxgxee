@@ -41,6 +41,15 @@ export class ProductService {
     this.products.splice(this.products.findIndex(x => x.id === id), 1);
   }
 
+  updateProduct({id, title, productType, price}) {
+    let filterProducts = this.products.filter(x=>x.id === parseInt(id));
+    if(filterProducts.length > 0) {
+      filterProducts[0].title = title;
+      filterProducts[0].productType = productType;
+      filterProducts[0].price = price;
+    }
+  }
+
   getProduct(id){
     const filterProducts = this.products.filter(x=>x.id === parseInt(id));
     return filterProducts.length === 0 ? undefined : filterProducts[0]

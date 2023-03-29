@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 //import { LoggingService } from '../logging.service';
 import { ProductService } from '../product.service';
 
@@ -14,9 +14,11 @@ export class NewProductComponent implements OnInit {
   showNewProductPanel = true;
   //New Product Item
   newProduct = { title: "", productType: "", price: 0, id: '' };
+  buttonTitle = 'Add';
   //@Output() addProduct:EventEmitter<any> = new EventEmitter<any>();
   constructor(private productService: ProductService, 
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute, 
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe({
@@ -25,6 +27,7 @@ export class NewProductComponent implements OnInit {
           //New Product
         }
         else{
+          this.buttonTitle = 'Edit';
           this.newProduct = this.destructureProduct(this.productService.getProduct(params['id']));
         }
       }
@@ -38,9 +41,15 @@ export class NewProductComponent implements OnInit {
     //this.loggingService.logNewProduct(this.newProduct.title, this.newProduct.productType, this.newProduct.price);
 
     //this.addProduct.emit(this.newProduct);
+    if(this.buttonTitle === 'Add'){
+      this.productService.addProduct(this.newProduct);
+    }
+    else{
+      this.productService.updateProduct(this.newProduct);
+    }
     this.productService.addProduct(this.newProduct);
     this.newProduct = { title: "", productType: "", price: 0, id: '' };
-    
+    this.router.navigate(['/products'])
   }
 
   destructureProduct({id, title, productType, price}){
