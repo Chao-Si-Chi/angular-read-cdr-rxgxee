@@ -10,12 +10,15 @@ const appRoutes: Routes = [
   //載入頁面有順序姓
   { path:'', component: HomeComponent }, // [url]/home
   { path:'home', component: HomeComponent }, // [url]/home
-  { path:'products', component: ProductsComponent }, // [url]/products
-  { path:'products/:id', component: ProductDetailComponent },  // [url]/products/1
-  { path:'products/:id/edit', component: NewProductComponent }, 
+  { path:'products', children: [
+      { path:'', component: ProductsComponent, pathMatch: 'full' },
+      { path:':id', component: ProductDetailComponent },  // [url]/products/1
+      { path:':id/edit', component: NewProductComponent }, 
+    ] 
+  }, // [url]/products
   //{ path:'', redirectTo: '/home', pathMatch: 'full' }, // [url]/home
-  { path:'page-not-found', component: PageNotFoundComponent }, 
-  { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' } // no any route matched 
+  { path:'404', component: PageNotFoundComponent }, 
+  { path: '**', redirectTo: '404', pathMatch: 'full' } // no any route matched 
 ]; 
 
 @NgModule({
