@@ -47,7 +47,6 @@ export class NewProductComponent implements OnInit {
     else{
       this.productService.updateProduct(this.newProduct);
     }
-    this.productService.addProduct(this.newProduct);
     this.newProduct = { title: "", productType: "", price: 0, id: '' };
     this.router.navigate(['/products'])
   }
