@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 //import { LoggingService } from '../logging.service';
 import { ProductService } from '../product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-new-product',
@@ -18,7 +19,8 @@ export class NewProductComponent implements OnInit {
   //@Output() addProduct:EventEmitter<any> = new EventEmitter<any>();
   constructor(private productService: ProductService, 
               private route: ActivatedRoute, 
-              private router: Router) { }
+              private router: Router, 
+              private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe({
@@ -48,7 +50,8 @@ export class NewProductComponent implements OnInit {
       this.productService.updateProduct(this.newProduct);
     }
     this.newProduct = { title: "", productType: "", price: 0, id: '' };
-    this.router.navigate(['/products'])
+    //this.router.navigate(['/products'])
+    this.location.back();
   }
 
   destructureProduct({id, title, productType, price}){
