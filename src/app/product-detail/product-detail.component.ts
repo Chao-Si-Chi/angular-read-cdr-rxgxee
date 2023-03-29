@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
+import { Location } from '@angular/common';
 import { takeUntil } from 'rxjs/operators';
 import { ProductService } from '../product.service';
 
@@ -9,18 +10,19 @@ import { ProductService } from '../product.service';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, OnDestroy {
   queryId = '';
   product: any;
   paramSubscription: Subscription;
-  //destroy$: Subject<boolean>;
+  destroy$: Subject<boolean> = new Subject<boolean>();
   constructor(private route: ActivatedRoute, 
-              private productService: ProductService) { }
+              private productService: ProductService, 
+              private location: Location) { }
 
   ngOnInit() {
     //this.queryId = this.route.snapshot.params['id'];
     this.paramSubscription = this.route.params.pipe(
-      //takeUntil(this.destroy$)
+      takeUntil(this.destroy$)
     )
     .subscribe({
       next: param => {
@@ -32,16 +34,16 @@ export class ProductDetailComponent implements OnInit {
   }
 
   goBack(){
-    //this.location.back();
+    this.location.back();
   }
 
   loadProduct(){
     this.product = this.productService.getProduct(this.queryId);
   }
 
-  /*ngOnDestroy(){
+  ngOnDestroy(){
     //this.paramSubscription.unsubscribe();
     this.destroy$.next(true);
-  }*/
+  }
 
 }
