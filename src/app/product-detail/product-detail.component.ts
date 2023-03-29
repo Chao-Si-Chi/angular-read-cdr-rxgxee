@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 import { takeUntil } from 'rxjs/operators';
@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //this.queryId = this.route.snapshot.params['id'];
-    this.paramSubscription = this.route.params.pipe(
+    /*this.paramSubscription = this.route.params.pipe(
       takeUntil(this.destroy$)
     )
     .subscribe({
@@ -30,16 +30,21 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         this.loadProduct();
       }
     });
-    this.loadProduct();
+    this.loadProduct();*/
+    this.route.data.subscribe({
+      next: (data: Data)=>{
+        this.product = data['product'];
+      }
+    });
   }
 
   goBack(){
     this.location.back();
   }
 
-  loadProduct(){
+  /*loadProduct(){
     this.product = this.productService.getProduct(this.queryId);
-  }
+  }*/
 
   ngOnDestroy(){
     //this.paramSubscription.unsubscribe();

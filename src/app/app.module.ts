@@ -18,6 +18,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { ProductResolver } from './product-resolver.service';
+import { CanDeactivateGuard } from './can-deactivate.guard';
 
 /*const appRoutes: Routes = [
   //載入頁面有順序姓
@@ -38,6 +42,6 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [ AppComponent, HelloComponent, ProductsComponent, ProductComponent, NewProductComponent, PaddingZeroPipe, HomeComponent, HeaderComponent, PageNotFoundComponent, ProductDetailComponent ],
   bootstrap:    [ AppComponent ], 
-  providers: [UserService]
+  providers: [ UserService, AuthService, AuthGuard, ProductResolver, CanDeactivateGuard ]
 })
 export class AppModule { }
